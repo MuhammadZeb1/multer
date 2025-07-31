@@ -1,5 +1,6 @@
 const express = require("express");
 const multer = require("multer");
+const path = require("path");
 // const upload = multer({dest:"uploads/"})
 
 const app = express();
@@ -14,7 +15,9 @@ const storage = multer.diskStorage({
         // cb(null, "uploa/"); // 'uploads/' فولڈر کا نام ہے جہاں فائلز سیو ہوں گی
     // },
     filename:function(res,file,cb){
-        cb(null,file.originalname)
+        // console.log(file.originalname.split(".")[1]);
+        
+        cb(null,Date.now()+path.extname(file.originalname))
     }
 })
 

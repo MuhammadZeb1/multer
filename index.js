@@ -7,8 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.post("/", upload.single("khan"),(req, res) => {
+app.post("/", upload.single("image"),(req, res) => {
     console.log(req.body);
+    console.log(req.file);
     res.send("hello");
 });
 
